@@ -1,17 +1,72 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/oMLd-9ZB)
-# Term Project
+# Credit Card Fraud Detection
 
-Hello everyone,
+This repository contains the code and documentation for a project on **Credit Card Fraud Detection**, completed as part of the CIS 635: Knowledge Discovery and Data Mining course. The project demonstrates the use of machine learning techniques to identify fraudulent credit card transactions in a highly imbalanced dataset.
 
-Welcome to your term project for CIS 635! This project is a significant part of our course and an excellent opportunity for you to apply the concepts and techniques we've learned.
+---
 
-You will find all the detailed instructions and requirements for the term project in the link provided below. Please make sure to read through these instructions carefully to understand the scope and expectations of the project.
+## **Overview**
+Fraud detection in credit card transactions is a critical real-world problem. This project explores various machine learning algorithms to improve the accuracy and reliability of fraud detection. The pipeline includes data preprocessing, resampling with SMOTE, model training, and evaluation using advanced metrics suited for imbalanced datasets.
 
-## [📎 CIS 635 Term Project Overview](https://gvsu-cis635.github.io/project/project-overview.html)
+---
 
-## Key Points to Remember
+## **Features**
+- Preprocessing with **Synthetic Minority Over-sampling Technique (SMOTE)** to address class imbalance.
+- Comparison of multiple models:
+  - Logistic Regression
+  - Random Forest
+  - XGBoost
+  - Neural Networks
+  - Ensemble Learning (Voting Classifier)
+- Metrics beyond accuracy, including **Precision**, **Recall**, **F1-score**, **ROC-AUC**, and **AUPRC**, to ensure effective fraud detection.
 
-1. **Team Collaboration**: Each team is required to create a single Git repository for the project. All team members are expected to collaborate and contribute to this shared repository. Please ensure that you push all your code and data to this repository. If the data is too large, include a download link for the data file instead.
-2. **Submission Requirements**: Each team is required to submit one project proposal, one progress report, and one final report to the Git repository. For details about the term project and submission deadlines, please visit the [project overview](https://gvsu-cis635.github.io/project/project-overview.html) page.
+---
 
-Best wishes on your term project!
+## **Results**
+
+| **Model**           | **Precision** | **Recall** | **F1 Score** | **ROC-AUC** | **AUPRC** | **Key Insights**                                                                 |
+|----------------------|---------------|------------|--------------|-------------|-----------|----------------------------------------------------------------------------------|
+| Logistic Regression  | 0.14          | 0.93       | 0.24         | 0.9825      | 0.8086    | High recall but low precision, leading to many false positives. Suitable for initial screening. |
+| Random Forest        | 0.80          | 0.88       | 0.84         | 0.9900      | 0.881     | Strong balance of precision and recall with high reliability. Robust for operational environments. |
+| XGBoost              | 0.78          | 0.86       | 0.82         | 0.9911      | 0.8858    | Slightly better ROC-AUC and AUPRC than Random Forest, effectively captures complex interactions. |
+| Neural Network       | 0.18          | 0.90       | 0.30         | 0.9684      | 0.823     | High recall but poor precision, leading to frequent false positives.                             |
+| Ensemble (Voting)    | 0.80          | 0.87       | 0.83         | 0.9912      | 0.8812    | Combines strengths of Random Forest and XGBoost, achieving a balanced and robust performance.   |
+
+---
+
+## **Usage**
+1. Open the notebook directly on **Google Colab**:
+   - [Credit Card Fraud Detection Notebook](https://github.com/aragakerubo/term-project-proposal-data_minds/blob/main/Credit_Card_Fraud_Detection.ipynb)
+
+2. All dependencies are specified within the notebook and can be installed directly in the Colab environment.
+
+---
+
+## **Dependencies**
+This project uses the following Python libraries:
+- `pandas`
+- `numpy`
+- `matplotlib`
+- `seaborn`
+- `imblearn`
+- `scikit-learn`
+- `xgboost`
+
+Google Colab will handle most library installations automatically. For any missing libraries, use:
+```python
+!pip install library_name
+```
+
+---
+
+
+## **Resources**
+- **Dataset**: [Credit Card Fraud Dataset](https://github.com/GVSU-CIS635/Datasets/raw/refs/heads/master/creditcard.csv.zip)
+- **Project Notebook**: [Credit_Card_Fraud_Detection.ipynb](https://github.com/aragakerubo/term-project-proposal-data_minds/blob/main/Credit_Card_Fraud_Detection.ipynb)
+
+---
+
+## **Future Directions**
+- Experiment with unsupervised learning methods to detect novel fraud patterns.
+- Incorporate Explainable AI (XAI) for enhanced transparency.
+- Extend the analysis for real-time fraud detection with temporal and geospatial features.
+
